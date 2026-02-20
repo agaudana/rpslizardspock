@@ -166,7 +166,7 @@ async function play(playerMove) {
   playerPickText.textContent = playerMove;
   playerCard.classList.add("revealPop");
 
-
+//
 //cpu move picked, shuffled
   const cpuMove = getRandomMove();
   await cpuShuffle(cpuMove);
