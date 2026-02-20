@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RPSLS - Neon Duel</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- App Wrapper -->
+  <main class="app">
+    <header class="top">
+      <h1>Rock • Paper • Scissors • Lizard • Spock</h1>
+      <p class="sub">First to <span id="winTargetText">5</span> wins.</p>
+    </header>
+
+    <!-- Scoreboard -->
+    <section class="board">
+      <div class="scoreCard">
+        <h2>You</h2>
+        <div class="score" id="playerScore">0</div>
+      </div>
+
+      <div class="roundCard">
+        <h2>Round</h2>
+        <div class="score" id="roundNum">0</div>
+      </div>
+
+      <div class="scoreCard">
+        <h2>Computer</h2>
+        <div class="score" id="cpuScore">0</div>
+      </div>
+    </section>
+
+    <!-- Arena -->
+    <section class="arena">
+      <div class="pickCard" id="playerPickCard">
+        <h3>Your Pick</h3>
+        <div class="bigPick" id="playerPick">—</div>
+      </div>
+
+      <div class="vs">VS</div>
+
+      <div class="pickCard" id="cpuPickCard">
+        <h3>Computer Pick</h3>
+        <div class="bigPick" id="cpuPick">—</div>
+      </div>
+    </section>
+
+    <!-- Result Text -->
+    <section class="result">
+      <p id="message">Pick a move to start!</p>
+      <p class="tiny" id="ruleLine">Tip: Scissors cuts Paper… you know the drill 😄</p>
+    </section>
+
+    <!-- Buttons -->
+    <section class="choices" id="choices">
+      <!-- Buttons inserted by JS (HTML script places elements on webpage) -->
+    </section>
+
+    <!-- Controls -->
+    <section class="controls">
+      <button id="resetBtn" class="secondary">Reset</button>
+      <label class="target">
+        Win target:
+        <select id="winTarget">
+          <option value="3">3</option>
+          <option value="5" selected>5</option>
+          <option value="7">7</option>
+        </select>
+      </label>
+    </section>
+  </main>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>

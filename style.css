@@ -1,0 +1,209 @@
+:root{
+  --bg1:#0b1020;
+  --bg2:#0a0720;
+  --card:#121a33cc;
+  --text:#eaf0ff;
+  --muted:#b7c2ffcc;
+  --accent:#7cf7ff;
+  --accent2:#c58bff;
+  --danger:#ff6b6b;
+  --good:#6bff9a;
+  --shadow: 0 14px 40px rgba(0,0,0,.45);
+}
+
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  min-height:100vh;
+  color:var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  background:
+    radial-gradient(1200px 700px at 20% 10%, #1a3a9a55, transparent 60%),
+    radial-gradient(900px 600px at 90% 20%, #8c2cff44, transparent 55%),
+    linear-gradient(135deg, var(--bg1), var(--bg2));
+}
+
+.app{
+  width:min(980px, 92vw);
+  margin: 28px auto;
+  padding: 18px;
+}
+
+.top{
+  text-align:center;
+  margin-bottom: 14px;
+}
+h1{
+  margin: 0 0 8px;
+  letter-spacing:.6px;
+}
+.sub{
+  margin:0;
+  color:var(--muted);
+}
+
+.board{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0;
+}
+.scoreCard, .roundCard{
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 16px;
+  padding: 12px 14px;
+  box-shadow: var(--shadow);
+  text-align:center;
+}
+.score{
+  font-size: 42px;
+  font-weight: 800;
+  margin-top: 6px;
+  text-shadow: 0 0 18px rgba(124,247,255,.15);
+}
+
+.arena{
+  display:grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 12px;
+  align-items: center;
+  margin: 16px 0;
+}
+.pickCard{
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: var(--shadow);
+  min-height: 120px;
+}
+.pickCard h3{
+  margin:0 0 8px;
+  color: var(--muted);
+  font-weight:600;
+}
+.bigPick{
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing:.5px;
+}
+.vs{
+  font-weight: 900;
+  letter-spacing:2px;
+  color: var(--accent);
+  text-shadow: 0 0 16px rgba(124,247,255,.35);
+}
+
+.result{
+  text-align:center;
+  margin: 14px 0 12px;
+}
+#message{
+  font-size: 18px;
+  margin: 0 0 6px;
+}
+.tiny{
+  margin:0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.choices{
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.choiceBtn{
+  cursor:pointer;
+  border:none;
+  border-radius: 14px;
+  padding: 12px 10px;
+  background: linear-gradient(135deg, rgba(124,247,255,.16), rgba(197,139,255,.12));
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing:.2px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,.09);
+  transition: transform .12s ease, filter .12s ease;
+}
+.choiceBtn:hover{ transform: translateY(-2px); filter: brightness(1.05); }
+.choiceBtn:active{ transform: translateY(1px) scale(.98); }
+
+.controls{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  margin-top: 14px;
+  gap: 10px;
+}
+.secondary{
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.18);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor:pointer;
+}
+.secondary:hover{ filter: brightness(1.08); }
+
+.target{
+  color: var(--muted);
+  display:flex;
+  align-items:center;
+  gap: 8px;
+}
+select{
+  border-radius: 10px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(0,0,0,.25);
+  color: var(--text);
+}
+
+.winGlow{
+  animation: winGlow .55s ease;
+  border-color: rgba(107,255,154,.45);
+}
+.loseShake{
+  animation: loseShake .45s ease;
+  border-color: rgba(255,107,107,.45);
+}
+.tiePulse{
+  animation: tiePulse .5s ease;
+  border-color: rgba(124,247,255,.35);
+}
+.revealPop{
+  animation: revealPop .35s ease;
+}
+
+@keyframes winGlow{
+  0%{ transform: scale(1); box-shadow: var(--shadow); }
+  60%{ transform: scale(1.06); box-shadow: 0 0 26px rgba(107,255,154,.22), var(--shadow); }
+  100%{ transform: scale(1); }
+}
+@keyframes loseShake{
+  0%{ transform: translateX(0); }
+  25%{ transform: translateX(-7px); }
+  50%{ transform: translateX(7px); }
+  75%{ transform: translateX(-5px); }
+  100%{ transform: translateX(0); }
+}
+@keyframes tiePulse{
+  0%{ transform: scale(1); }
+  60%{ transform: scale(1.04); }
+  100%{ transform: scale(1); }
+}
+@keyframes revealPop{
+  0%{ transform: scale(.94); opacity:.6; }
+  100%{ transform: scale(1); opacity:1; }
+}
+
+@media (max-width: 720px){
+  .choices{ grid-template-columns: repeat(2, 1fr); }
+  .arena{ grid-template-columns: 1fr; }
+  .vs{ text-align:center; }
+}
